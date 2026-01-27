@@ -444,4 +444,61 @@
                     adviceHtml = `<div class="sub-advice bg-danger">Must Attend: <b>${need > 0 ? need : 1}</b> 🚨</div>`;
                 }
 
-     
+                const html = `
+                    <div class="subject-card ${borderColor}">
+                        <div class="sub-header">
+                            <div class="sub-name" title="${sub.name}">${sub.name}</div>
+                            <div class="sub-percent ${textColor}">${p.toFixed(1)}%</div>
+                        </div>
+                        <div class="sub-stats">
+                            <span>✅ ${sub.present}</span>
+                            <span>❌ ${sub.total - sub.present}</span>
+                            <span>Total: ${sub.total}</span>
+                        </div>
+                        ${adviceHtml}
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        // --- Tools ---
+        function checkOD() {
+            const od = parseInt(document.getElementById('odInput').value);
+            if(!od) return;
+            const newP = g_present + od;
+            const newPct = (newP / g_total * 100).toFixed(2);
+            const boost = (newPct - g_percent).toFixed(2);
+            document.getElementById('odResult').innerHTML = `New: <b>${newPct}%</b> <span style="color:#db2777">(+${boost}%)</span>`;
+        }
+
+        function checkFuture() {
+            const extra = parseInt(document.getElementById('futureInput').value);
+            if(!extra) return;
+            const newP = g_present + extra;
+            const newT = g_total + extra;
+            const newPct = (newP / newT * 100).toFixed(2);
+            const boost = (newPct - parseFloat(g_percent)).toFixed(2);
+            document.getElementById('futureResult').innerHTML = `New: <b>${newPct}%</b> <span style="color:blue">(+${boost}%)</span>`;
+        }
+
+        function shareResult() {
+            const text = `My Attendance is ${g_percent}%. Checking subject-wise status on SKIT Academic Pro! Check yours: https://magical-tanuki-6349b2.netlify.app/`;
+            if (navigator.share) navigator.share({ title: 'SKIT Status', text: text }).catch(console.error);
+            else window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function animateCircle(target) {
+            const circle = document.querySelector('.score-circle');
+            const text = document.getElementById('percentDisplay');
+            let current = 0; const step = target / 50;
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) { current = target; clearInterval(timer); }
+                text.innerText = current.toFixed(2) + "%";
+                circle.style.background = `conic-gradient(var(--theme-color) ${current * 3.6}deg, #e5e7eb ${current * 3.6}deg)`;
+            }, 16);
+        }
+    </script>
+</body>
+</html>
