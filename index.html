@@ -104,22 +104,17 @@
             transition: transform 0.2s, background 0.2s;
             margin-top: 10px;
         }
-
         .btn-main:active { transform: scale(0.98); }
 
         /* --- Dashboard --- */
         #dashboard { display: none; animation: slideUp 0.5s ease; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* --- Score Circle --- */
         .score-circle {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             margin: 0 auto 20px auto;
             border-radius: 50%;
             background: conic-gradient(var(--theme-color) 0deg, #e5e7eb 0deg);
@@ -128,174 +123,89 @@
             justify-content: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-
         .score-circle::before {
-            content: "";
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: white;
-            border-radius: 50%;
+            content: ""; position: absolute; width: 110px; height: 110px;
+            background: white; border-radius: 50%;
         }
-
-        .score-val {
-            position: relative;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--theme-color);
-        }
+        .score-val { position: relative; font-size: 2rem; font-weight: 800; color: var(--theme-color); }
 
         .status-badge {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--theme-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-align: center; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px;
+            color: var(--theme-color); text-transform: uppercase; letter-spacing: 1px;
         }
-
         .funny-msg {
-            text-align: center;
-            font-size: 0.9rem;
-            font-style: italic;
-            color: #555;
-            margin-bottom: 20px;
-            background: rgba(255,255,255,0.5);
-            padding: 10px;
-            border-radius: 8px;
+            text-align: center; font-size: 0.85rem; font-style: italic; color: #555;
+            margin-bottom: 20px; background: rgba(255,255,255,0.5); padding: 8px; border-radius: 8px;
         }
 
         /* --- Stats Grid --- */
-        .stats-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
+        .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .stat-item { background: #f9fafb; padding: 10px; border-radius: 12px; text-align: center; }
+        .stat-val { font-weight: 700; font-size: 1rem; color: #333; }
+        .stat-label { font-size: 0.75rem; color: #777; }
 
-        .stat-item {
-            background: #f9fafb;
-            padding: 10px;
-            border-radius: 12px;
-            text-align: center;
-        }
-        .stat-val { font-weight: 700; font-size: 1.1rem; color: #333; }
-        .stat-label { font-size: 0.8rem; color: #777; }
+        /* --- Tools --- */
+        .tool-header { font-size: 0.9rem; font-weight: 600; margin: 15px 0 8px 0; display: flex; align-items: center; gap: 8px; }
+        .tool-row { display: flex; gap: 8px; margin-bottom: 5px; }
+        input[type="number"] { width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 8px; text-align: center; font-weight: bold; }
+        .btn-action { flex: 1; padding: 8px; border: none; border-radius: 8px; background: #eef2ff; color: var(--theme-color); font-weight: 600; font-size: 0.85rem; cursor: pointer; }
+        .result-text { font-size: 0.8rem; color: #666; margin-bottom: 10px; margin-left: 2px; }
 
-        /* --- Tools Section --- */
-        .tool-header {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin: 15px 0 10px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .tool-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 5px;
-        }
-
-        input[type="number"] {
-            width: 70px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .btn-action {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 8px;
-            background: #eef2ff;
-            color: var(--theme-color);
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-        
-        .result-text { font-size: 0.85rem; color: #666; margin-bottom: 15px; margin-left: 2px; }
-
-        .btn-share {
-            background: #25D366; 
-            color: white;
-            width: 100%;
-            margin-top: 20px;
-            padding: 12px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-        }
-
-        .qr-container {
-            margin-top: 15px;
-            background: white;
-            padding: 10px;
-            border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        /* --- CGPA CALCULATOR STYLES --- */
-        .divider {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin: 25px 0 15px 0;
-            color: #aaa;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        .divider::before, .divider::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .divider span { padding: 0 10px; }
-
-        .cgpa-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .cgpa-card {
-            background: white;
-            border: 2px solid transparent;
-            padding: 15px 10px;
-            border-radius: 12px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        /* --- SUBJECT WISE STYLES (NEW) --- */
+        .subject-list {
+            margin-top: 25px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
-        .cgpa-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--theme-color);
-            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.15);
+        .subject-card {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 12px;
+            border-left: 5px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
         }
+        .sub-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        .sub-name { font-weight: 700; font-size: 0.85rem; color: #333; width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .sub-percent { font-weight: 800; font-size: 0.95rem; }
+        
+        .sub-stats { font-size: 0.75rem; color: #666; display: flex; gap: 10px; }
+        .sub-advice { 
+            margin-top: 8px; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            padding: 4px 8px; 
+            border-radius: 6px; 
+            display: inline-block;
+        }
+        
+        .border-safe { border-left-color: #059669; }
+        .border-warn { border-left-color: #f59e0b; }
+        .border-danger { border-left-color: #dc2626; }
+        
+        .text-safe { color: #059669; }
+        .text-warn { color: #f59e0b; }
+        .text-danger { color: #dc2626; }
+        
+        .bg-safe { background: #ecfdf5; color: #059669; }
+        .bg-danger { background: #fef2f2; color: #dc2626; }
+
+        /* --- CGPA & Share --- */
+        .divider { display: flex; align-items: center; text-align: center; margin: 25px 0 15px 0; color: #aaa; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; }
+        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid #e5e7eb; }
+        .divider span { padding: 0 10px; }
+
+        .cgpa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .cgpa-card { background: white; border: 2px solid transparent; padding: 15px 10px; border-radius: 12px; text-align: center; text-decoration: none; color: var(--text-main); transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .cgpa-card:hover { transform: translateY(-3px); border-color: var(--theme-color); }
         .cgpa-icon { font-size: 1.5rem; color: var(--theme-color); }
         .cgpa-label { font-size: 0.85rem; font-weight: 700; }
         .cgpa-sub { font-size: 0.7rem; color: #888; }
 
-        /* --- Helper Classes --- */
+        .btn-share { background: #25D366; color: white; width: 100%; margin-top: 20px; padding: 12px; border-radius: 50px; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
+
+        /* Colors Helper */
         .color-elite { --theme-color: #059669; }
         .color-safe { --theme-color: #0ea5e9; }
         .color-risky { --theme-color: #f59e0b; }
@@ -308,14 +218,14 @@
 
     <div class="glass-card" id="mainContainer">
         <h1>SKIT Academic Pro</h1>
-        <p class="subtitle">Attendance & CGPA Manager</p>
+        <p class="subtitle">Subject Analyzer & Bunk Manager</p>
 
         <div id="inputSection">
             <p style="font-size: 0.9rem; color: #555; margin-bottom: 8px;">
                 <i class="fas fa-clipboard"></i> Paste Full Attendance Report:
             </p>
             <textarea id="inputData" placeholder="Copy table from ERP and paste here..."></textarea>
-            <button class="btn-main" onclick="processReport()">Calculate Attendance 🚀</button>
+            <button class="btn-main" onclick="processReport()">Analyze My Fate 🚀</button>
             <div style="text-align:center; margin-top:10px;">
                  <a href="https://erp.skit.ac.in/reports/student_aggregate" style="color:#666; font-size:0.8rem; text-decoration:none;">Where do I copy from?</a>
             </div>
@@ -355,37 +265,14 @@
                 </div>
             </div>
 
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <div class="divider" style="color: #4f46e5;"><span>SUBJECT WISE BREAKDOWN</span></div>
+            <div id="subjectList" class="subject-list">
+                </div>
 
-            <div class="tool-header" style="color: #2563EB;">
-                <i class="fas fa-plus-circle"></i> Attend Future Classes
-            </div>
-            <div class="tool-row">
-                <input type="number" id="futureInput" placeholder="classes">
-                <button class="btn-action" style="background:#eff6ff; color:#2563EB;" onclick="checkFuture()">Check Boost 🚀</button>
-            </div>
-            <div id="futureResult" class="result-text"></div>
-
-            <div class="tool-header" style="color: #f59e0b;">
-                <i class="fas fa-bed"></i> Can I Bunk?
-            </div>
-            <div class="tool-row">
-                <input type="number" id="bunkInput" placeholder="classes">
-                <button class="btn-action" style="background:#fffbeb; color:#f59e0b;" onclick="checkBunk()">Check Drop 📉</button>
-            </div>
-            <div id="bunkResult" class="result-text"></div>
-
-            <div class="tool-header" style="color: #059669;">
-                <i class="fas fa-bullseye"></i> Reach Target
-            </div>
-            <div class="tool-row">
-                <input type="number" id="targetInput" placeholder="75%">
-                <button class="btn-action" style="background:#ecfdf5; color:#059669;" onclick="calcTarget()">Classes Needed 📈</button>
-            </div>
-            <div id="targetResult" class="result-text"></div>
-
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+            
             <div class="tool-header" style="color: #db2777;">
-                <i class="fas fa-file-signature"></i> Add OD(On Duty)
+                <i class="fas fa-file-signature"></i> Add OD / Medical
             </div>
             <div class="tool-row">
                 <input type="number" id="odInput" placeholder="Days">
@@ -393,18 +280,14 @@
             </div>
             <div id="odResult" class="result-text"></div>
 
-
-            <div class="tool-header" style="color: #6a11cb; margin-top: 25px;">
-                <i class="fas fa-calculator"></i> Check Your Grades
+            <div class="tool-header" style="color: #2563EB;">
+                <i class="fas fa-plus-circle"></i> Attend Overall
             </div>
-            <div class="cgpa-grid" style="margin-bottom: 20px;">
-                <a href="https://cgpa-1sem.netlify.app/" target="_blank" class="cgpa-card" style="padding: 10px; flex-direction: row; justify-content: center;">
-                    <i class="fas fa-baby"></i> 1st Sem
-                </a>
-                <a href="https://bestcgpa.netlify.app/" target="_blank" class="cgpa-card" style="padding: 10px; flex-direction: row; justify-content: center;">
-                    <i class="fas fa-user-graduate"></i> 3rd Sem
-                </a>
+            <div class="tool-row">
+                <input type="number" id="futureInput" placeholder="Days">
+                <button class="btn-action" onclick="checkFuture()">Check Boost 🚀</button>
             </div>
+            <div id="futureResult" class="result-text"></div>
 
             <button class="btn-share" onclick="shareResult()">
                 <i class="fab fa-whatsapp"></i> Share Status
@@ -419,31 +302,22 @@
     <div class="glass-card" style="text-align: center; padding: 20px;">
         <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Enjoying the Safe Bunks?</p>
         <p style="font-size: 0.8rem; color: #666; margin-bottom: 15px;">Support the Developer ☕</p>
-        
-        <div class="qr-container">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=jainsambhav877@oksbi&pn=Sambhav&cu=INR" 
-                 alt="Scan to Pay" width="150" height="150">
+        <div style="margin-top: 15px; background: white; padding: 10px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=jainsambhav877@oksbi&pn=Sambhav&cu=INR" alt="Scan to Pay" width="150" height="150">
         </div>
-        
         <br><br>
-        <a href="upi://pay?pa=jainsambhav877@oksbi&pn=Sambhav&cu=INR" 
-           style="background:#2563EB; color:white; padding:10px 24px; border-radius:30px; text-decoration:none; font-size:0.9rem; font-weight:600; display:inline-block; box-shadow: 0 4px 10px rgba(37,99,235,0.3);">
-           Pay via UPI App
-        </a>
+        <a href="upi://pay?pa=jainsambhav877@oksbi&pn=Sambhav&cu=INR" style="background:#2563EB; color:white; padding:10px 24px; border-radius:30px; text-decoration:none; font-size:0.9rem; font-weight:600; display:inline-block; box-shadow: 0 4px 10px rgba(37,99,235,0.3);">Pay via UPI App</a>
     </div>
 
     <script>
-        // Global Variables
         let g_present = 0;
         let g_total = 0;
         let g_percent = 0;
+        let subjects = [];
 
-        // On Load
         window.addEventListener('load', () => {
             const saved = localStorage.getItem('skit_data');
-            if(saved) {
-                document.getElementById('inputData').value = saved;
-            }
+            if(saved) document.getElementById('inputData').value = saved;
         });
 
         function resetApp() {
@@ -451,196 +325,123 @@
             document.getElementById('inputSection').style.display = 'block';
             document.getElementById('inputData').value = "";
             localStorage.removeItem('skit_data');
-            
+            document.getElementById('odInput').value = "";
             document.getElementById('futureInput').value = "";
-            document.getElementById('bunkInput').value = "";
-            document.getElementById('targetInput').value = "";
-            document.getElementById('odInput').value = ""; // Clear OD input
-            
+            document.getElementById('odResult').innerText = "";
             document.getElementById('futureResult').innerText = "";
-            document.getElementById('bunkResult').innerText = "";
-            document.getElementById('targetResult').innerText = "";
-            document.getElementById('odResult').innerText = ""; // Clear OD result
         }
 
         function processReport() {
             const text = document.getElementById('inputData').value;
             const lines = text.split('\n');
-            let totalClasses = 0;
-            let totalAttended = 0;
-            let found = false;
             
-            // Regex to parse ERP lines
-            const regex = /(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+([0-9.]+)$/;
+            g_present = 0;
+            g_total = 0;
+            subjects = [];
+
+            // Regex to capture: Name (start) ... L T P Absent % (end)
+            // It looks for the last 5 numbers in a line
+            const regex = /^(.*?)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+([0-9.]+)$/;
 
             lines.forEach(line => {
                 const match = line.trim().match(regex);
                 if (match) {
-                    found = true;
-                    const attended = parseInt(match[1]) + parseInt(match[2]) + parseInt(match[3]);
-                    const absent = parseInt(match[4]);
-                    totalAttended += attended;
-                    totalClasses += (attended + absent);
+                    // match[1] = Name, [2]=L, [3]=T, [4]=P, [5]=Abs, [6]=%
+                    let name = match[1].replace(/^\d+\s+/, '').trim(); // Remove leading S.No if any
+                    // Clean obscure ERP codes if present (like 7CS4-01:)
+                    name = name.replace(/^[0-9A-Z]+-[0-9]+:\s*/, '');
+
+                    const L = parseInt(match[2]);
+                    const T = parseInt(match[3]);
+                    const P = parseInt(match[4]);
+                    const Abs = parseInt(match[5]);
+                    
+                    const present = L + T + P;
+                    const total = present + Abs;
+
+                    if (total > 0) {
+                        g_present += present;
+                        g_total += total;
+                        subjects.push({
+                            name: name || "Unknown Subject",
+                            present: present,
+                            total: total,
+                            percent: (present / total * 100)
+                        });
+                    }
                 }
             });
 
-            if (!found) {
+            if (subjects.length === 0) {
                 alert("❌ Data not found! Please copy the full table from SKIT ERP.");
                 return;
             }
 
             localStorage.setItem('skit_data', text);
-
-            g_present = totalAttended;
-            g_total = totalClasses;
             g_percent = ((g_present / g_total) * 100).toFixed(2);
-
             updateDashboard();
         }
 
         function updateDashboard() {
-            const mainCard = document.getElementById('mainContainer');
-            const statusBadge = document.getElementById('statusBadge');
-            const funnyMsg = document.getElementById('funnyMsg');
-            
             document.getElementById('attendedVal').innerText = g_present;
             document.getElementById('totalVal').innerText = g_total;
             animateCircle(parseFloat(g_percent));
-
-            let msg = "";
-            let themeClass = "";
-            let badgeText = "";
+            
+            // Overall Status Logic
+            const mainCard = document.getElementById('mainContainer');
+            const statusBadge = document.getElementById('statusBadge');
+            const funnyMsg = document.getElementById('funnyMsg');
             const p = parseFloat(g_percent);
-
+            
             mainCard.classList.remove('color-elite', 'color-safe', 'color-risky', 'color-danger', 'color-critical');
+            let themeClass = "color-critical";
+            let badgeText = "LEGENDARY";
+            let msg = "College is temporary, Backlogs are permanent.";
 
-            if (p >= 85) {
-                themeClass = "color-elite";
-                badgeText = "👑 ELITE STUDENT";
-                msg = "Attendance itni high ki HOD bhi autograph maange. Nerd Alert! 🤓";
-            } else if (p >= 75) {
-                themeClass = "color-safe";
-                badgeText = "😎 SAFE ZONE";
-                msg = "Perfect balance. Life set hai, bas maintain rakhna bhai. ✨";
-            } else if (p >= 65) {
-                themeClass = "color-risky";
-                badgeText = "⚠️ WARNING ZONE";
-                msg = "Living on the edge? Ek-do bunk aur game over. Sambhal ja! 🛑";
-            } else if (p >= 45) {
-                themeClass = "color-danger";
-                badgeText = "🔥 DANGER ZONE";
-                msg = "HOD Room loading... Mummy ko call aane wala hai. Prayers sent. 🙏";
-            } else {
-                themeClass = "color-critical";
-                badgeText = "💀 LEGENDARY";
-                msg = "College is temporary, Backlogs are permanent. Next sem phodenge! 🗿";
-            }
+            if (p >= 85) { themeClass = "color-elite"; badgeText = "ELITE STUDENT"; msg = "HOD wants your autograph. 🤓"; }
+            else if (p >= 75) { themeClass = "color-safe"; badgeText = "SAFE ZONE"; msg = "Chill hai life. Maintain it. ✨"; }
+            else if (p >= 65) { themeClass = "color-risky"; badgeText = "WARNING ZONE"; msg = "Living on the edge? 🛑"; }
+            else if (p >= 45) { themeClass = "color-danger"; badgeText = "DANGER ZONE"; msg = "Mummy ko call aane wala hai. 🙏"; }
 
             mainCard.classList.add(themeClass);
             statusBadge.innerText = badgeText;
             funnyMsg.innerText = `"${msg}"`;
 
+            renderSubjects();
+
             document.getElementById('inputSection').style.display = 'none';
             document.getElementById('dashboard').style.display = 'block';
         }
 
-        function checkFuture() {
-            const extra = parseInt(document.getElementById('futureInput').value);
-            if(!extra) return;
-            
-            const newTotal = g_total + extra;
-            const newPresent = g_present + extra;
-            const newPercent = (newPresent / newTotal) * 100;
-            const boost = newPercent - parseFloat(g_percent);
-            
-            document.getElementById('futureResult').innerHTML = 
-                `New %: <b>${newPercent.toFixed(2)}%</b> <span style="color:var(--theme-color)">(+${boost.toFixed(2)}%)</span>`;
-        }
+        function renderSubjects() {
+            const container = document.getElementById('subjectList');
+            container.innerHTML = "";
 
-        function checkBunk() {
-            const bunk = parseInt(document.getElementById('bunkInput').value);
-            if(!bunk) return;
-            
-            const newTotal = g_total + bunk;
-            const newPercent = (g_present / newTotal) * 100;
-            const drop = parseFloat(g_percent) - newPercent;
-            
-            document.getElementById('bunkResult').innerHTML = 
-                `New %: <b>${newPercent.toFixed(2)}%</b> <span style="color:red">(-${drop.toFixed(2)}%)</span>`;
-        }
+            subjects.forEach(sub => {
+                const p = sub.percent;
+                let borderColor = "border-danger";
+                let textColor = "text-danger";
+                let adviceHtml = "";
 
-        function calcTarget() {
-            const target = parseFloat(document.getElementById('targetInput').value);
-            if(!target) return;
-            
-            const p = target / 100;
-            if(p >= 1 || target <= parseFloat(g_percent)) {
-                 document.getElementById('targetResult').innerText = "Target already met or invalid!";
-                 return;
-            }
-
-            let required = (p * g_total - g_present) / (1 - p);
-            required = Math.ceil(required);
-            
-            document.getElementById('targetResult').innerHTML = 
-                `You need to attend <b>${required}</b> more classes continuously.`;
-        }
-
-        // --- NEW OD CALCULATOR FUNCTION ---
-        function checkOD() {
-            const od = parseInt(document.getElementById('odInput').value);
-            if(!od) return;
-            
-            // Logic: Increase Numerator (Present), Denominator (Total) stays same
-            const newPresent = g_present + od;
-            const newTotal = g_total; 
-            
-            const newPercent = (newPresent / newTotal) * 100;
-            const boost = newPercent - parseFloat(g_percent);
-            
-            document.getElementById('odResult').innerHTML = 
-                `New %: <b>${newPercent.toFixed(2)}%</b> <span style="color:#db2777">(+${boost.toFixed(2)}%)</span>`;
-        }
-
-        function shareResult() {
-            const p = parseFloat(g_percent);
-            let shareText = "";
-
-            if (p >= 85) shareText = `🤓 My Attendance is ${p}%. I attend classes so you don't have to. #SKITTopper`;
-            else if (p >= 75) shareText = `😎 My Attendance is ${p}%. Chill vibes only. Safe Zone. #SKITManager`;
-            else if (p >= 65) shareText = `💀 My Attendance is ${p}%. Risk hai toh Ishq hai. #LivingOnEdge`;
-            else if (p >= 45) shareText = `🆘 My Attendance is ${p}%. Send prayers, HOD is watching. #DangerZone`;
-            else shareText = `🗿 My Attendance is ${p}%. Legend status achieved. #BacklogWarrior`;
-
-            shareText += `\n\nCheck yours here:https://magical-tanuki-6349b2.netlify.app/`;
-
-            if (navigator.share) {
-                navigator.share({
-                    title: 'SKIT Academic Status',
-                    text: shareText
-                }).catch(console.error);
-            } else {
-                window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank');
-            }
-        }
-
-        function animateCircle(target) {
-            const circle = document.querySelector('.score-circle');
-            const text = document.getElementById('percentDisplay');
-
-            let current = 0;
-            const step = target / 60; 
-
-            const interval = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(interval);
+                // Logic for Advice
+                if (p >= 75) {
+                    borderColor = "border-safe";
+                    textColor = "text-safe";
+                    // Calculate Safe Bunks: (P - 0.75T) / 0.75
+                    // Equation: (P) / (T + x) >= 0.75 => x is bunkable? NO.
+                    // Equation for Bunk: (P) / (T + bunk) >= 0.75 
+                    // P >= 0.75T + 0.75bunk => 0.75bunk <= P - 0.75T => bunk <= (P - 0.75T)/0.75
+                    const bunkable = Math.floor((sub.present - 0.75 * sub.total) / 0.75);
+                    if(bunkable > 0) {
+                        adviceHtml = `<div class="sub-advice bg-safe">Safe to Bunk: <b>${bunkable}</b> 🥳</div>`;
+                    } else {
+                        adviceHtml = `<div class="sub-advice bg-safe">On Track (Don't Bunk)</div>`;
+                    }
+                } else {
+                    // Equation for Attend: (P + x) / (T + x) >= 0.75
+                    // P + x >= 0.75T + 0.75x => 0.25x >= 0.75T - P => x >= 3T - 4P
+                    const need = Math.ceil(3 * sub.total - 4 * sub.present);
+                    adviceHtml = `<div class="sub-advice bg-danger">Must Attend: <b>${need > 0 ? need : 1}</b> 🚨</div>`;
                 }
-                text.innerText = current.toFixed(2) + "%";
-                circle.style.background = `conic-gradient(var(--theme-color) ${current * 3.6}deg, #e5e7eb ${current * 3.6}deg)`;
-            }, 16); 
-        }
-    </script>
-</body>
-</html>
+
+     
