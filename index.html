@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5KXK6Y2G1D"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XQ0JK7ELF"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-5KXK6Y2G1D');
+      gtag('config', 'G-4XQ0JK7ELF');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SKIT Attendance Pro</title>
+    <title>SKIT Academic Pro</title>
     <meta name="theme-color" content="#4f46e5">
-    
+
+    <link rel="icon" type="image/jpeg" href="unnamed.jpg">
+    <link rel="apple-touch-icon" href="unnamed.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -31,7 +32,6 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            /* Midnight Bloom Background */
             background-color: #000428;
             background-image: linear-gradient(135deg, #000428 0%, #004e92 50%, #6a11cb 100%);
             background-attachment: fixed;
@@ -60,7 +60,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* --- Header --- */
         h1 {
             font-size: 1.5rem;
             text-align: center;
@@ -76,7 +75,6 @@
             margin-bottom: 20px;
         }
 
-        /* --- Inputs --- */
         textarea {
             width: 100%;
             height: 100px;
@@ -123,17 +121,30 @@
             width: 150px;
             height: 150px;
             margin: 0 auto 20px auto;
+            border-radius: 50%;
+            background: conic-gradient(var(--theme-color) 0deg, #e5e7eb 0deg);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            background: white;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 5px solid var(--theme-color);
         }
 
-        .score-val { font-size: 2.2rem; font-weight: 800; color: var(--theme-color); }
-        
+        .score-circle::before {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .score-val {
+            position: relative;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--theme-color);
+        }
+
         .status-badge {
             text-align: center;
             font-size: 1.2rem;
@@ -209,16 +220,10 @@
             cursor: pointer;
         }
         
-        .result-text {
-            font-size: 0.85rem; 
-            color: #666; 
-            margin-bottom: 15px; 
-            margin-left: 2px;
-        }
+        .result-text { font-size: 0.85rem; color: #666; margin-bottom: 15px; margin-left: 2px; }
 
-        /* --- Share Button --- */
         .btn-share {
-            background: #25D366; /* WhatsApp Green */
+            background: #25D366; 
             color: white;
             width: 100%;
             margin-top: 20px;
@@ -234,7 +239,6 @@
             box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
         }
 
-        /* --- QR Section --- */
         .qr-container {
             margin-top: 15px;
             background: white;
@@ -244,34 +248,94 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* --- Helper Classes for Colors --- */
-        .color-elite { --theme-color: #059669; } /* Green */
-        .color-safe { --theme-color: #0ea5e9; } /* Blue */
-        .color-risky { --theme-color: #f59e0b; } /* Orange */
-        .color-danger { --theme-color: #ea580c; } /* Dark Orange */
-        .color-critical { --theme-color: #dc2626; } /* Red */
+        /* --- CGPA CALCULATOR STYLES --- */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 25px 0 15px 0;
+            color: #aaa;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .divider span { padding: 0 10px; }
+
+        .cgpa-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .cgpa-card {
+            background: white;
+            border: 2px solid transparent;
+            padding: 15px 10px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .cgpa-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--theme-color);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.15);
+        }
+        .cgpa-icon { font-size: 1.5rem; color: var(--theme-color); }
+        .cgpa-label { font-size: 0.85rem; font-weight: 700; }
+        .cgpa-sub { font-size: 0.7rem; color: #888; }
+
+        /* --- Helper Classes --- */
+        .color-elite { --theme-color: #059669; }
+        .color-safe { --theme-color: #0ea5e9; }
+        .color-risky { --theme-color: #f59e0b; }
+        .color-danger { --theme-color: #ea580c; }
+        .color-critical { --theme-color: #dc2626; }
 
     </style>
 </head>
 <body>
 
     <div class="glass-card" id="mainContainer">
-        <h1>SKIT Attendance Pro</h1>
-        <p class="subtitle">Smart Tracker & Bunk Predictor</p>
+        <h1>SKIT Academic Pro</h1>
+        <p class="subtitle">Attendance & CGPA Manager</p>
 
         <div id="inputSection">
             <p style="font-size: 0.9rem; color: #555; margin-bottom: 8px;">
-                <i class="fas fa-clipboard"></i> Paste Full Report:
+                <i class="fas fa-clipboard"></i> Paste Full Attendance Report:
             </p>
             <textarea id="inputData" placeholder="Copy table from ERP and paste here..."></textarea>
-            <button class="btn-main" onclick="processReport()">Calculate My Fate 🚀</button>
-            <div style="text-align:center; margin-top:15px;">
+            <button class="btn-main" onclick="processReport()">Calculate Attendance 🚀</button>
+            <div style="text-align:center; margin-top:10px;">
                  <a href="https://erp.skit.ac.in/reports/student_aggregate" style="color:#666; font-size:0.8rem; text-decoration:none;">Where do I copy from?</a>
+            </div>
+
+            <div class="divider"><span>OR CALCULATE CGPA</span></div>
+            <div class="cgpa-grid">
+                <a href="https://cgpa-1sem.netlify.app/" target="_blank" class="cgpa-card">
+                    <i class="fas fa-baby cgpa-icon"></i>
+                    <span class="cgpa-label">1st Sem</span>
+                    <span class="cgpa-sub">Fresher Calculator</span>
+                </a>
+                <a href="https://bestcgpa.netlify.app/" target="_blank" class="cgpa-card">
+                    <i class="fas fa-user-graduate cgpa-icon"></i>
+                    <span class="cgpa-label">3rd Sem</span>
+                    <span class="cgpa-sub">Senior Calculator</span>
+                </a>
             </div>
         </div>
 
         <div id="dashboard">
-            
             <div class="status-badge" id="statusBadge">Checking...</div>
             
             <div class="score-circle">
@@ -297,7 +361,7 @@
                 <i class="fas fa-plus-circle"></i> Attend Future Classes
             </div>
             <div class="tool-row">
-                <input type="number" id="futureInput" placeholder="Days">
+                <input type="number" id="futureInput" placeholder="classes">
                 <button class="btn-action" style="background:#eff6ff; color:#2563EB;" onclick="checkFuture()">Check Boost 🚀</button>
             </div>
             <div id="futureResult" class="result-text"></div>
@@ -306,7 +370,7 @@
                 <i class="fas fa-bed"></i> Can I Bunk?
             </div>
             <div class="tool-row">
-                <input type="number" id="bunkInput" placeholder="Days">
+                <input type="number" id="bunkInput" placeholder="classes">
                 <button class="btn-action" style="background:#fffbeb; color:#f59e0b;" onclick="checkBunk()">Check Drop 📉</button>
             </div>
             <div id="bunkResult" class="result-text"></div>
@@ -319,6 +383,28 @@
                 <button class="btn-action" style="background:#ecfdf5; color:#059669;" onclick="calcTarget()">Classes Needed 📈</button>
             </div>
             <div id="targetResult" class="result-text"></div>
+
+            <div class="tool-header" style="color: #db2777;">
+                <i class="fas fa-file-signature"></i> Add OD(On Duty)
+            </div>
+            <div class="tool-row">
+                <input type="number" id="odInput" placeholder="Days">
+                <button class="btn-action" style="background:#fce7f3; color:#db2777;" onclick="checkOD()">Check Impact 🏥</button>
+            </div>
+            <div id="odResult" class="result-text"></div>
+
+
+            <div class="tool-header" style="color: #6a11cb; margin-top: 25px;">
+                <i class="fas fa-calculator"></i> Check Your Grades
+            </div>
+            <div class="cgpa-grid" style="margin-bottom: 20px;">
+                <a href="https://cgpa-1sem.netlify.app/" target="_blank" class="cgpa-card" style="padding: 10px; flex-direction: row; justify-content: center;">
+                    <i class="fas fa-baby"></i> 1st Sem
+                </a>
+                <a href="https://bestcgpa.netlify.app/" target="_blank" class="cgpa-card" style="padding: 10px; flex-direction: row; justify-content: center;">
+                    <i class="fas fa-user-graduate"></i> 3rd Sem
+                </a>
+            </div>
 
             <button class="btn-share" onclick="shareResult()">
                 <i class="fab fa-whatsapp"></i> Share Status
@@ -366,15 +452,15 @@
             document.getElementById('inputData').value = "";
             localStorage.removeItem('skit_data');
             
-            // Clear inputs
             document.getElementById('futureInput').value = "";
             document.getElementById('bunkInput').value = "";
             document.getElementById('targetInput').value = "";
+            document.getElementById('odInput').value = ""; // Clear OD input
             
-            // Clear results
             document.getElementById('futureResult').innerText = "";
             document.getElementById('bunkResult').innerText = "";
             document.getElementById('targetResult').innerText = "";
+            document.getElementById('odResult').innerText = ""; // Clear OD result
         }
 
         function processReport() {
@@ -419,9 +505,8 @@
             
             document.getElementById('attendedVal').innerText = g_present;
             document.getElementById('totalVal').innerText = g_total;
-            document.getElementById('percentDisplay').innerText = g_percent + "%";
+            animateCircle(parseFloat(g_percent));
 
-            // Categorization Logic
             let msg = "";
             let themeClass = "";
             let badgeText = "";
@@ -459,7 +544,6 @@
             document.getElementById('dashboard').style.display = 'block';
         }
 
-        // --- Tool: Attend Future ---
         function checkFuture() {
             const extra = parseInt(document.getElementById('futureInput').value);
             if(!extra) return;
@@ -473,7 +557,6 @@
                 `New %: <b>${newPercent.toFixed(2)}%</b> <span style="color:var(--theme-color)">(+${boost.toFixed(2)}%)</span>`;
         }
 
-        // --- Tool: Bunk ---
         function checkBunk() {
             const bunk = parseInt(document.getElementById('bunkInput').value);
             if(!bunk) return;
@@ -486,7 +569,6 @@
                 `New %: <b>${newPercent.toFixed(2)}%</b> <span style="color:red">(-${drop.toFixed(2)}%)</span>`;
         }
 
-        // --- Tool: Target ---
         function calcTarget() {
             const target = parseFloat(document.getElementById('targetInput').value);
             if(!target) return;
@@ -504,7 +586,22 @@
                 `You need to attend <b>${required}</b> more classes continuously.`;
         }
 
-        // --- Share Logic ---
+        // --- NEW OD CALCULATOR FUNCTION ---
+        function checkOD() {
+            const od = parseInt(document.getElementById('odInput').value);
+            if(!od) return;
+            
+            // Logic: Increase Numerator (Present), Denominator (Total) stays same
+            const newPresent = g_present + od;
+            const newTotal = g_total; 
+            
+            const newPercent = (newPresent / newTotal) * 100;
+            const boost = newPercent - parseFloat(g_percent);
+            
+            document.getElementById('odResult').innerHTML = 
+                `New %: <b>${newPercent.toFixed(2)}%</b> <span style="color:#db2777">(+${boost.toFixed(2)}%)</span>`;
+        }
+
         function shareResult() {
             const p = parseFloat(g_percent);
             let shareText = "";
@@ -515,16 +612,34 @@
             else if (p >= 45) shareText = `🆘 My Attendance is ${p}%. Send prayers, HOD is watching. #DangerZone`;
             else shareText = `🗿 My Attendance is ${p}%. Legend status achieved. #BacklogWarrior`;
 
-            shareText += `\n\nCheck yours here: https://skit-attendance.netlify.app`; // Put your real URL here
+            shareText += `\n\nCheck yours here:https://magical-tanuki-6349b2.netlify.app/`;
 
             if (navigator.share) {
                 navigator.share({
-                    title: 'SKIT Attendance Status',
+                    title: 'SKIT Academic Status',
                     text: shareText
                 }).catch(console.error);
             } else {
                 window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank');
             }
+        }
+
+        function animateCircle(target) {
+            const circle = document.querySelector('.score-circle');
+            const text = document.getElementById('percentDisplay');
+
+            let current = 0;
+            const step = target / 60; 
+
+            const interval = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                text.innerText = current.toFixed(2) + "%";
+                circle.style.background = `conic-gradient(var(--theme-color) ${current * 3.6}deg, #e5e7eb ${current * 3.6}deg)`;
+            }, 16); 
         }
     </script>
 </body>
